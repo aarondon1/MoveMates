@@ -23,17 +23,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* search bar */}
-        <View className="mx-5 mb-4">
-          <View className="flex-row items-center bg-neutral-100 rounded-full p-4 space-x-2 pl-6">
-            <MagnifyingGlassIcon size={20} strokeWidth={3} color="gray" />
-            <TextInput
-              placeholder='Search destination'
-              placeholderTextColor={'gray'}
-              className="flex-1 text-base mb-1 pl-1 tracking-wider"
-            />
-          </View>
-        </View>
+        
 
         {/* categories */}
         <View className="mb-4">
