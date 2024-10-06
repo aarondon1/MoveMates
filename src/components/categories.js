@@ -8,7 +8,7 @@ export default function Categories() {
   return (
     <View className="space-y-5">
       <View className="mx-5 flex-row justify-between items-center">
-        <Text style={{fontSize: wp(4)}} className="font-semibold text-neutral-700">Categories</Text>
+        <Text style={{fontSize: wp(4)}} className="font-semibold text-neutral-700">Rewards</Text>
         <TouchableOpacity>
             <Text style={{fontSize: wp(4), color: theme.text}}>See all</Text>
         </TouchableOpacity>
