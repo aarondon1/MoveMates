@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import { theme } from '../theme';
 import { getAllChallenges } from '../libs/challenges';
 import Map from '../components/Map'; // Import the Map component
+import * as Location from 'expo-location';
 
 const ios = Platform.OS == 'ios';
 const topMargin = ios ? '' : 'mt-10';
@@ -17,6 +18,8 @@ export default function DestinationScreen(props) {
     const [challenges, setChallenges] = useState([]);  // State to hold the fetched data
     const [loading, setLoading] = useState(true);  // Loading state
     const navigation = useNavigation();
+    const [errorMsg, setErrorMsg] = useState(null);
+    const [location, setLocation] = useState(null);
 
     // Fetch data on component mount
     useEffect(() => {
@@ -34,18 +37,32 @@ export default function DestinationScreen(props) {
         fetchChallenges();  // Call the fetch function
     }, []);
 
+    useEffect(() => {
+        (async () => {
+          let { status } = await Location.requestForegroundPermissionsAsync();
+          if (status !== 'granted') {
+            setErrorMsg('Permission to access location was denied');
+            return;
+          }
+    
+          let userLocation = await Location.getCurrentPositionAsync({});
+          const { latitude, longitude } = userLocation.coords;
+          setLocation({
+            latitude,
+            longitude,
+            latitudeDelta: 0.015,
+            longitudeDelta: 0.015,
+          });
+        })();
+      }, []);
+    
+
     // If loading, show a loading text (you can replace this with a loader/spinner)
     if (loading) {
         return <Text>Loading...</Text>;
     }
 
     // Define the location for the map
-    const location = {
-        latitude: challenges.length > 0 ? challenges[0]?.latitude : 37.78825,
-        longitude: challenges.length > 0 ? challenges[0]?.longitude : -122.4324,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-    };
 
     return (
         <SafeAreaView className="flex-1 bg-white">
