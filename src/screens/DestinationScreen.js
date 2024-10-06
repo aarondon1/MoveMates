@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity, ScrollView, Platform } from 'react-native';
+// src/screens/DestinationScreen.js
+import { View, Text, TouchableOpacity, ScrollView, Platform, Alert } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { StatusBar } from 'expo-status-bar';
@@ -9,60 +10,33 @@ import { useNavigation } from '@react-navigation/native';
 import { theme } from '../theme';
 import { getAllChallenges } from '../libs/challenges';
 import Map from '../components/Map'; // Import the Map component
-import * as Location from 'expo-location';
 
 const ios = Platform.OS == 'ios';
 const topMargin = ios ? '' : 'mt-10';
 
 export default function DestinationScreen(props) {
-    const [challenges, setChallenges] = useState([]);  // State to hold the fetched data
-    const [loading, setLoading] = useState(true);  // Loading state
+    const [challenges, setChallenges] = useState([]);
+    const [loading, setLoading] = useState(true);
     const navigation = useNavigation();
-    const [errorMsg, setErrorMsg] = useState(null);
-    const [location, setLocation] = useState(null);
 
-    // Fetch data on component mount
     useEffect(() => {
         const fetchChallenges = async () => {
             try {
-                const data = await getAllChallenges();  // Fetch the challenges from Firestore
-                setChallenges(data);  // Set the fetched data into state
+                const data = await getAllChallenges();
+                setChallenges(data);
             } catch (error) {
                 console.error('Error fetching challenges: ', error);
             } finally {
-                setLoading(false);  // Stop loading
+                setLoading(false);
             }
         };
 
-        fetchChallenges();  // Call the fetch function
+        fetchChallenges();
     }, []);
 
-    useEffect(() => {
-        (async () => {
-          let { status } = await Location.requestForegroundPermissionsAsync();
-          if (status !== 'granted') {
-            setErrorMsg('Permission to access location was denied');
-            return;
-          }
-    
-          let userLocation = await Location.getCurrentPositionAsync({});
-          const { latitude, longitude } = userLocation.coords;
-          setLocation({
-            latitude,
-            longitude,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.015,
-          });
-        })();
-      }, []);
-    
-
-    // If loading, show a loading text (you can replace this with a loader/spinner)
     if (loading) {
         return <Text>Loading...</Text>;
     }
-
-    // Define the location for the map
 
     return (
         <SafeAreaView className="flex-1 bg-white">
@@ -79,7 +53,7 @@ export default function DestinationScreen(props) {
 
                 {/* Replace the image with the Map component */}
                 <View style={{ height: hp(40) }}>
-                    <Map location={location} />
+                    <Map />
                 </View>
 
                 <Text style={{ fontSize: wp(3.7) }} className="text-neutral-700 tracking-wide mb-2">
@@ -118,6 +92,7 @@ export default function DestinationScreen(props) {
             <TouchableOpacity
                 style={{ backgroundColor: theme.bg(0.8), height: wp(15), width: wp(50) }}
                 className="mb-6 mx-auto flex justify-center items-center rounded-full"
+                onPress={() => Alert.alert('Navigation Started', 'Follow the route to your destination!')}
             >
                 <Text className="text-white font-bold" style={{ fontSize: wp(5.5) }}>Begin</Text>
             </TouchableOpacity>

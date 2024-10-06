@@ -29,7 +29,7 @@ export default function WelcomeScreen() {
         <View className="space-y-3">
             <Text className="text-white font-bold text-5xl" style={{fontSize: wp(10)}}>MoveMates</Text>
             <Text className="text-neutral-200 font-medium" style={{fontSize: wp(4)}}>
-                Some Motto here
+                Explore and Earn rewards
             </Text>
         </View>
         <TouchableOpacity onPress={()=> navigation.navigate("Home")} style={{backgroundColor: theme.bg(1)}} className="mx-auto p-3 px-12 rounded-full">
