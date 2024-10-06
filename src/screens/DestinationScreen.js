@@ -64,7 +64,7 @@ export default function DestinationScreen(props) {
                         <ClockIcon size={wp(7)} color="skyblue" />
                         <View className="flex space-y-2">
                             <Text style={{ fontSize: wp(4.5) }} className="font-bold text-neutral-700">
-                                {challenges.length > 0 ? challenges[0]?.duration : "N/A"}
+                               &lt;1 minute
                             </Text>
                             <Text className="text-neutral-600 tracking-wide">Duration</Text>
                         </View>
@@ -73,7 +73,7 @@ export default function DestinationScreen(props) {
                         <MapPinIcon size={wp(7)} color="#f87171" />
                         <View className="flex space-y-2">
                             <Text style={{ fontSize: wp(4.5) }} className="font-bold text-neutral-700">
-                                {challenges.length > 0 ? challenges[0]?.distance : "N/A"}
+                            &lt;150 Ft
                             </Text>
                             <Text className="text-neutral-600 tracking-wide">Distance</Text>
                         </View>
@@ -82,9 +82,9 @@ export default function DestinationScreen(props) {
                         <SunIcon size={wp(7)} color="orange" />
                         <View className="flex space-y-2">
                             <Text style={{ fontSize: wp(4.5) }} className="font-bold text-neutral-700">
-                                {challenges.length > 0 ? challenges[0]?.weather : "N/A"}
+                                Sunny
                             </Text>
-                            <Text className="text-neutral-600 tracking-wide">Sunny</Text>
+                            <Text className="text-neutral-600 tracking-wide">Weather</Text>
                         </View>
                     </View>
                 </View>
