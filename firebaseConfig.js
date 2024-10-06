@@ -1,10 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import dotenv from "dotenv";
+import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID } from '@env';
+
 
 // Load environment variables from .env file
-dotenv.config();
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
