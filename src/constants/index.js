@@ -70,3 +70,4 @@ export const destinationData = [
         image: require('../../assets/images/forest.png')
     },
 ]
+
