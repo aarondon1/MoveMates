@@ -1,6 +1,6 @@
-import app from "../firebaseConfig.js";
+import app from "../../firebaseConfig.js";
 import { collection, getDocs, doc, getDoc, setDoc, updateDoc, deleteDoc, arrayUnion } from "firebase/firestore";
-import { db } from "../firebaseConfig.js";
+import { db } from "../../firebaseConfig.js";
 
 // Function to add a new challenge
 const addNewChallenge = async (challengeId, challengeData) => {
@@ -30,7 +30,6 @@ const addTestChallenges = async () => {
 };
 
 // Call the function to add test challenges
-addTestChallenges();
 
 export const addParticipant = async (challengeId, userId) => {
     const challengeRef = doc(db, "challenges", challengeId);
@@ -42,4 +41,11 @@ export const addParticipant = async (challengeId, userId) => {
     } catch (error) {
         console.error("Error adding participant:", error);
     }
+};
+
+export const getAllChallenges = async () => {
+    const challengesList = collection(db, "challenges");
+    const challengesSnapshot = await getDocs(challengesList);
+    const challenges = challengesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return challenges;
 };

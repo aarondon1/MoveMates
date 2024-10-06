@@ -47,7 +47,6 @@ export const addTestRewards = async () => {
     }
 };
 
-addTestRewards();
 
 // Function to update a reward
 export const updateReward = async (rewardId, updatedData) => {
