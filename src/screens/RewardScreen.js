@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, Alert } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
@@ -24,6 +24,10 @@ export default function RewardScreen() {
         fetchRewards();
     }, []);
 
+    const handleRewardPress = () => {
+        Alert.alert("Redeemed", "Your reward has been redeemed!");
+    };
+
     if (loading) {
         return <Text>Loading...</Text>;
     }
@@ -33,7 +37,11 @@ export default function RewardScreen() {
             <View style={styles.container}>
                 {rewards.length > 0 ? (
                     rewards.map((reward, index) => (
-                        <RewardCard navigation={navigation} reward={reward} key={index} />
+                        <RewardCard
+                            key={index}
+                            reward={reward}
+                            onPress={handleRewardPress} // Pass the function to handle card press
+                        />
                     ))
                 ) : (
                     <Text>No rewards found</Text>
@@ -50,6 +58,6 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 25
-    }
+        padding: 20,
+    },
 });

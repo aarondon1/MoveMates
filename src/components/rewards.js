@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { theme } from '../theme';
 
-const RewardCard = ({ reward }) => {
+const RewardCard = ({ reward, onPress }) => {
   return (
-    <View style={styles.cardContainer}>
+    <TouchableOpacity onPress={onPress} style={styles.cardContainer}>
       <Text style={styles.title}>{reward.title}</Text>
       <View style={styles.card}>
         <Image source={{ uri: reward.imageURL }} style={styles.image} />
@@ -14,10 +14,11 @@ const RewardCard = ({ reward }) => {
           <Text style={styles.cost}>{reward.cost.toString()} points</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
+// Styles remain the same
 const styles = StyleSheet.create({
   cardContainer: {
     margin: 10,
@@ -26,40 +27,43 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: theme.bg(1),
     borderRadius: 20,
-    padding: 10,
-    width: wp(80), // Increased width to make the card more horizontal
-    height: hp(20), // Decreased height to make the card more horizontal
-    flexDirection: 'row', // Arrange children in a row
+    padding: 0,
+    width: wp(60),
+    height: hp(35),
     alignItems: 'center',
+    overflow: 'hidden',
   },
   image: {
-    width: wp(30), // Adjusted width for the image
-    height: '100%', // Make the image take the full height of the card
-    borderRadius: 10,
-    marginRight: 10, // Add margin to create space between image and text
+    width: '100%',
+    height: '100%',
+    borderRadius: 20,
   },
   infoContainer: {
-    flex: 1, // Take up the remaining space
-    justifyContent: 'center',
+    width: '100%',
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    position: 'absolute',
+    bottom: 0,
   },
   title: {
     color: theme.text,
     fontSize: wp(5),
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 10, // Add margin to create space between title and card
+    marginBottom: 10,
   },
   description: {
     color: theme.text,
     fontSize: wp(4),
-    textAlign: 'left',
+    textAlign: 'center',
     marginBottom: 5,
   },
   cost: {
     color: theme.text,
     fontSize: wp(4),
     fontWeight: 'bold',
-    textAlign: 'left',
+    textAlign: 'center',
   },
 });
 
