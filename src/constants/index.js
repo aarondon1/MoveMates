@@ -37,8 +37,8 @@ export const destinationData = [
         duration: '12 Days',
         distance: '400 KM',
         weather: '20 C',
-        shortDescription: "Osaka Castle is a Japanese castle in Chūō-ku, Osaka, Japan. The castle is one of Japan's most famous landmarks.",
-        longDescription: "Osaka Castle is a Japanese castle in Chūō-ku, Osaka, Japan. The castle is one of Japan's most famous landmarks and it played a major role in the unification of Japan during the sixteenth century of the Azuchi-Momoyama period.",
+        shortDescription: "short description here",
+        longDescription: "longer description here",
         image: require('../../assets/images/hotel.png')
     },
     {
@@ -46,8 +46,8 @@ export const destinationData = [
         duration: '7 Days',
         distance: '450 KM',
         weather: '30 C',
-        shortDescription: "The Itsukushima shrine is one of Japan's most popular tourist attractions.",
-        longDescription: "Itsukushima Shrine is a Shinto shrine on the island of Itsukushima, best known for its 'floating' torii gate. It is in the city of Hatsukaichi in Hiroshima Prefecture in Japan, accessible from the mainland by ferry at Miyajimaguchi Station.",
+        shortDescription: "short description here",
+        longDescription: "longer description here",
         image: require('../../assets/images/island.png')
     },
     
@@ -56,8 +56,8 @@ export const destinationData = [
         duration: '5 Days',
         distance: '299 KM',
         weather: '14 C',
-        shortDescription: "Babusar Top is a mountain pass in Pakistan at the north of the 150 km long in beautiful Kaghan Valley",
-        longDescription: "Babusar Pass or Babusar Top is a mountain pass in Pakistan at the north of the 150 km long Kaghan Valley, connecting it via the Thak Nala with Chilas on the Karakoram Highway. It is the highest point in Kaghan Valley that can be easily accessed by cars.",
+        shortDescription: "short description here",
+        longDescription: "longer description here",
         image: require('../../assets/images/camp.png')
     },
     {
@@ -65,8 +65,8 @@ export const destinationData = [
         duration: '20 Days',
         distance: '604 KM',
         weather: '34 C',
-        shortDescription: "Todaiji is one of Japan's most famous and significant temples and a landmark of Nara.",
-        longDescription: "Tōdai-ji is a Buddhist temple complex that was once one of the powerful Seven Great Temples, located in the city of Nara, Japan. Though it was originally founded in the year 738 CE, Tōdai-ji was not opened until the year 752 CE.",
+        shortDescription: "short description here",
+        longDescription: "longer description here",
         image: require('../../assets/images/forest.png')
     },
 ]
