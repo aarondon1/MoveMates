@@ -8,7 +8,7 @@
 - **Group Biking Competitions**: Join local friends to form biking groups and compete to see who can bike the most each week.
 - **Activity Tracking**: The app uses GPS to track biking distance and calculate rankings.
 - **Weekly Rewards**: Earn prizes for being the top biker in your group each week.
-- - **Weekly Challenges**: Compete in challenges to earn points to redeem rewards.
+-  **Weekly Challenges**: Compete in challenges to earn points to redeem rewards.
 
 ## Technologies Used
 
