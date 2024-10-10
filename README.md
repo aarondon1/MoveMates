@@ -39,12 +39,12 @@ Make sure you have the following installed:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/movemates.git
+    git clone https://github.com/yourusername/MoveMates.git
     ```
    
 2. Navigate into the project directory:
     ```bash
-    cd movemates
+    cd MoveMates
     ```
 
 3. Install dependencies:
