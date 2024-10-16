@@ -59,10 +59,6 @@ Make sure you have the following installed:
     npm start
     ```
 
-### Contribution
-
-Contributions are welcome! Feel free to fork this repository and submit a pull request with any improvements or bug fixes.
-
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
